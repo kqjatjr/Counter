@@ -17,30 +17,45 @@
       }
     </style>
     <div class="counter" id="counter">
-      <button onclick="onClickAdd('#counter')">+</button>
+      <button class="counter_counter-add">+</button>
       <div class="counter_counter-display">0</div>
-      <button onclick="onClickSub('#counter')">-</button>
+      <button class="counter_counter-sub">-</button>
     </div>
     <div class="counter" id="counter2">
-      <button onclick="onClickAdd('#counter2')">+</button>
+      <button class="counter_counter-add">+</button>
       <div class="counter_counter-display">0</div>
-      <button onclick="onClickSub('#counter2')">-</button>
+      <button class="counter_counter-sub">-</button>
     </div>
 
     <script type="text/javascript">
-      function onClickAdd(id) {
-        const $counter = document.querySelector(id);
-        const $display = $counter.querySelector(".counter_counter-display");
-        let number = parseInt($display.innerHTML, 10);
-        $display.innerHTML = number + 1;
-      }
+      class Counter {
+        constructor(id) {
+          this.id = id;
+          this.$counter = document.querySelector(this.id);
+          this.$display = this.$counter.querySelector(
+            ".counter_counter-display",
+          );
+          const $addbtn = this.$counter.querySelector(".counter_counter-add");
+          $addbtn.addEventListener("click", () => {
+            this.onClickAdd();
+          });
+          const $subbtn = this.$counter.querySelector(".counter_counter-sub");
+          $subbtn.addEventListener("click", () => {
+            this.onClickSub();
+          });
+        }
+        onClickAdd() {
+          let number = parseInt(this.$display.innerHTML, 10);
+          this.$display.innerHTML = number + 1;
+        }
 
-      function onClickSub(id) {
-        const $counter = document.querySelector(id);
-        const $display = $counter.querySelector(".counter_counter-display");
-        let number = parseInt($display.innerHTML, 10);
-        $display.innerHTML = number - 1;
+        onClickSub() {
+          let number = parseInt(this.$display.innerHTML, 10);
+          this.$display.innerHTML = number - 1;
+        }
       }
+      const counter1 = new Counter("#counter");
+      const counter2 = new Counter("#counter2");
     </script>
   </body>
 </html>
