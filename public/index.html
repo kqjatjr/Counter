@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>counter</title>
-    </head>
-    <body>
-        <div id="greet">안녕하세요</div>
-        <style>
-            div {
-                background-color: aqua;
-            }
-        </style>
-        <script type="text/javascript">
-            //Document Object Model
-            const $greet = document.querySelector("#greet");
-            $greet.innerHTML = "안녕히가세요";
-            $greet.style.backgroundColor = 'red';
-            console.log($greet);
-        </script>
-    </body>
+  <head>
+    <meta charset="utf-8" />
+    <title>counter</title>
+  </head>
+  <body>
+    <style>
+      .counter {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #cccccc;
+      }
+      .counter .counter_counter-display {
+        display: inline-block;
+      }
+    </style>
+    <div class="counter" id="counter">
+      <button>+</button>
+      <div class="counter_counter-display">0</div>
+      <button>-</button>
+    </div>
+    <script type="text/javascript"></script>
+  </body>
 </html>
