@@ -35,7 +35,9 @@
           this.$display = this.$counter.querySelector(
             ".counter_counter-display",
           );
-          this.$display.innerHTML = initialvalue;
+          this.count = 0;
+          this.setcount(initialvalue);
+
           const $addbtn = this.$counter.querySelector(".counter_counter-add");
           $addbtn.addEventListener("click", () => {
             this.onClickAdd();
@@ -46,13 +48,19 @@
           });
         }
         onClickAdd() {
-          let number = parseInt(this.$display.innerHTML, 10);
-          this.$display.innerHTML = number + 1;
+          this.setcount(this.count + 1);
         }
 
         onClickSub() {
-          let number = parseInt(this.$display.innerHTML, 10);
-          this.$display.innerHTML = number - 1;
+          this.setcount(this.count - 1);
+        }
+
+        setcount(count) {
+          this.count = count;
+          this.rander();
+        }
+        rander() {
+          this.$display.innerHTML = this.count;
         }
       }
       const counter1 = new Counter("#counter");
