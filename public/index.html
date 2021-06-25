@@ -17,10 +17,24 @@
       }
     </style>
     <div class="counter" id="counter">
-      <button>+</button>
+      <button onclick="onClickAdd()">+</button>
       <div class="counter_counter-display">0</div>
-      <button>-</button>
+      <button onclick="onClickSub()">-</button>
     </div>
-    <script type="text/javascript"></script>
+    <script type="text/javascript">
+      function onClickAdd(event) {
+        const $counter = document.querySelector("#counter");
+        const $display = $counter.querySelector(".counter_counter-display");
+        let number = parseInt($display.innerHTML, 10);
+        $display.innerHTML = number + 1;
+      }
+
+      function onClickSub(event) {
+        const $counter = document.querySelector("#counter");
+        const $display = $counter.querySelector(".counter_counter-display");
+        let number = parseInt($display.innerHTML, 10);
+        $display.innerHTML = number - 1;
+      }
+    </script>
   </body>
 </html>
