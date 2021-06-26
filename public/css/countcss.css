@@ -1,0 +1,9 @@
+.counter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #cccccc;
+}
+.counter .counter_counter-display {
+  display: inline-block;
+}
